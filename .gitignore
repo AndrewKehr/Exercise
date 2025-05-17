@@ -1,0 +1,12 @@
+terraform_accessKeys.csv
+.terraform/
+*.zip
+terraform/.terraform/
+wiz/aws/
+.aws/
+.aws/credentials
+.aws/config
+*.pem
+*.key
+*.pem.terraform/
+*.zip
