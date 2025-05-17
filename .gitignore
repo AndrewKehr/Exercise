@@ -12,5 +12,6 @@ aws/
 *.key
 *.pem.terraform/
 *.zip
+*.pub
 kubectl*
 eksctl*
