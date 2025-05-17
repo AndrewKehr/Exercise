@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wiz-2048
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wiz-2048
+  template:
+    metadata:
+      labels:
+        app: wiz-2048
+    spec:
+      containers:
+        - name: game-2048
+          image: 767828727505.dkr.ecr.us-east-1.amazonaws.com/2048-app:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: MONGO_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: mongodb-connection
+                  key: MONGO_URI
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wiz-web
+spec:
+  type: LoadBalancer
+  selector:
+    app: wiz-2048
+  ports:
+    - port: 80
+      targetPort: 80

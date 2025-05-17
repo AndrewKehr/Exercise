@@ -4,6 +4,7 @@ terraform_accessKeys.csv
 terraform/.terraform/
 wiz/aws/
 aws/
+2048/
 .aws/
 .aws/credentials
 .aws/config
