@@ -15,7 +15,7 @@ mongodump \
   --username="$MONGO_USER" \
   --password="$MONGO_PASS" \
   --authenticationDatabase="$AUTH_DB" \
-  --out "$BACKUP_DIR"
+  --out "$BACKUP_DIR" --username admin --password 'WizSecurePass123!' --authenticationDatabase admin
 
 # Check if dump succeeded
 if [ $? -ne 0 ]; then
@@ -27,7 +27,7 @@ fi
 tar -czf "$ARCHIVE_FILE" -C "$BACKUP_DIR" .
 
 # Upload to S3
-aws s3 cp "$ARCHIVE_FILE" "s3://$S3_BUCKET/$(basename $ARCHIVE_FILE)" --acl public-read
+aws s3 cp "/tmp/mongo-backup-$TIMESTAMP.tar.gz" "s3://$S3_BUCKET/mongo-backup-$TIMESTAMP.tar.gz"
 
 # Clean up
 rm -rf "$BACKUP_DIR" "$ARCHIVE_FILE"
