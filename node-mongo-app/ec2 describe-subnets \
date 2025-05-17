@@ -1,0 +1,324 @@
+{
+    "Subnets": [
+        {
+            "AvailabilityZoneId": "use1-az1",
+            "MapCustomerOwnedIpOnLaunch": false,
+            "OwnerId": "767828727505",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "aws:cloudformation:stack-name",
+                    "Value": "eksctl-wiz-eks-cluster"
+                },
+                {
+                    "Key": "aws:cloudformation:stack-id",
+                    "Value": "arn:aws:cloudformation:us-east-1:767828727505:stack/eksctl-wiz-eks-cluster/40ee9e30-32d8-11f0-a61e-0eb45e5c7d2d"
+                },
+                {
+                    "Key": "alpha.eksctl.io/eksctl-version",
+                    "Value": "0.208.0"
+                },
+                {
+                    "Key": "kubernetes.io/role/internal-elb",
+                    "Value": "1"
+                },
+                {
+                    "Key": "aws:cloudformation:logical-id",
+                    "Value": "SubnetPrivateUSEAST1C"
+                },
+                {
+                    "Key": "alpha.eksctl.io/cluster-name",
+                    "Value": "wiz-eks"
+                },
+                {
+                    "Key": "eksctl.cluster.k8s.io/v1alpha1/cluster-name",
+                    "Value": "wiz-eks"
+                },
+                {
+                    "Key": "alpha.eksctl.io/cluster-oidc-enabled",
+                    "Value": "false"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "eksctl-wiz-eks-cluster/SubnetPrivateUSEAST1C"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:us-east-1:767828727505:subnet/subnet-08ec96406b08863f2",
+            "EnableDns64": false,
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "SubnetId": "subnet-08ec96406b08863f2",
+            "State": "available",
+            "VpcId": "vpc-0af1f0286f7932385",
+            "CidrBlock": "192.168.64.0/19",
+            "AvailableIpAddressCount": 8186,
+            "AvailabilityZone": "us-east-1c",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": false
+        },
+        {
+            "AvailabilityZoneId": "use1-az1",
+            "MapCustomerOwnedIpOnLaunch": false,
+            "OwnerId": "767828727505",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "alpha.eksctl.io/cluster-oidc-enabled",
+                    "Value": "false"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "eksctl-wiz-eks-cluster/SubnetPublicUSEAST1C"
+                },
+                {
+                    "Key": "alpha.eksctl.io/cluster-name",
+                    "Value": "wiz-eks"
+                },
+                {
+                    "Key": "aws:cloudformation:stack-id",
+                    "Value": "arn:aws:cloudformation:us-east-1:767828727505:stack/eksctl-wiz-eks-cluster/40ee9e30-32d8-11f0-a61e-0eb45e5c7d2d"
+                },
+                {
+                    "Key": "aws:cloudformation:logical-id",
+                    "Value": "SubnetPublicUSEAST1C"
+                },
+                {
+                    "Key": "alpha.eksctl.io/eksctl-version",
+                    "Value": "0.208.0"
+                },
+                {
+                    "Key": "kubernetes.io/role/elb",
+                    "Value": "1"
+                },
+                {
+                    "Key": "eksctl.cluster.k8s.io/v1alpha1/cluster-name",
+                    "Value": "wiz-eks"
+                },
+                {
+                    "Key": "aws:cloudformation:stack-name",
+                    "Value": "eksctl-wiz-eks-cluster"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:us-east-1:767828727505:subnet/subnet-02030f299fb9b50b3",
+            "EnableDns64": false,
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "SubnetId": "subnet-02030f299fb9b50b3",
+            "State": "available",
+            "VpcId": "vpc-0af1f0286f7932385",
+            "CidrBlock": "192.168.0.0/19",
+            "AvailableIpAddressCount": 8173,
+            "AvailabilityZone": "us-east-1c",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": true
+        },
+        {
+            "AvailabilityZoneId": "use1-az2",
+            "MapCustomerOwnedIpOnLaunch": false,
+            "OwnerId": "767828727505",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "alpha.eksctl.io/cluster-name",
+                    "Value": "wiz-eks"
+                },
+                {
+                    "Key": "eksctl.cluster.k8s.io/v1alpha1/cluster-name",
+                    "Value": "wiz-eks"
+                },
+                {
+                    "Key": "kubernetes.io/role/internal-elb",
+                    "Value": "1"
+                },
+                {
+                    "Key": "aws:cloudformation:logical-id",
+                    "Value": "SubnetPrivateUSEAST1D"
+                },
+                {
+                    "Key": "aws:cloudformation:stack-name",
+                    "Value": "eksctl-wiz-eks-cluster"
+                },
+                {
+                    "Key": "aws:cloudformation:stack-id",
+                    "Value": "arn:aws:cloudformation:us-east-1:767828727505:stack/eksctl-wiz-eks-cluster/40ee9e30-32d8-11f0-a61e-0eb45e5c7d2d"
+                },
+                {
+                    "Key": "alpha.eksctl.io/eksctl-version",
+                    "Value": "0.208.0"
+                },
+                {
+                    "Key": "alpha.eksctl.io/cluster-oidc-enabled",
+                    "Value": "false"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "eksctl-wiz-eks-cluster/SubnetPrivateUSEAST1D"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:us-east-1:767828727505:subnet/subnet-0a2aa57b17ba5948f",
+            "EnableDns64": false,
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "SubnetId": "subnet-0a2aa57b17ba5948f",
+            "State": "available",
+            "VpcId": "vpc-0af1f0286f7932385",
+            "CidrBlock": "192.168.96.0/19",
+            "AvailableIpAddressCount": 8186,
+            "AvailabilityZone": "us-east-1d",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": false
+        },
+        {
+            "AvailabilityZoneId": "use1-az4",
+            "MapCustomerOwnedIpOnLaunch": false,
+            "OwnerId": "767828727505",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "wiz-vpc"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:us-east-1:767828727505:subnet/subnet-08f7706a12a0af496",
+            "EnableDns64": false,
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "SubnetId": "subnet-08f7706a12a0af496",
+            "State": "available",
+            "VpcId": "vpc-0d0115af3283b9b6b",
+            "CidrBlock": "10.0.1.0/24",
+            "AvailableIpAddressCount": 250,
+            "AvailabilityZone": "us-east-1a",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": true
+        },
+        {
+            "AvailabilityZoneId": "use1-az6",
+            "MapCustomerOwnedIpOnLaunch": false,
+            "OwnerId": "767828727505",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "wiz-vpc"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:us-east-1:767828727505:subnet/subnet-0dbcd81e71b592730",
+            "EnableDns64": false,
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "SubnetId": "subnet-0dbcd81e71b592730",
+            "State": "available",
+            "VpcId": "vpc-0d0115af3283b9b6b",
+            "CidrBlock": "10.0.2.0/24",
+            "AvailableIpAddressCount": 251,
+            "AvailabilityZone": "us-east-1b",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": true
+        },
+        {
+            "AvailabilityZoneId": "use1-az2",
+            "MapCustomerOwnedIpOnLaunch": false,
+            "OwnerId": "767828727505",
+            "AssignIpv6AddressOnCreation": false,
+            "Ipv6CidrBlockAssociationSet": [],
+            "Tags": [
+                {
+                    "Key": "alpha.eksctl.io/eksctl-version",
+                    "Value": "0.208.0"
+                },
+                {
+                    "Key": "aws:cloudformation:logical-id",
+                    "Value": "SubnetPublicUSEAST1D"
+                },
+                {
+                    "Key": "eksctl.cluster.k8s.io/v1alpha1/cluster-name",
+                    "Value": "wiz-eks"
+                },
+                {
+                    "Key": "aws:cloudformation:stack-name",
+                    "Value": "eksctl-wiz-eks-cluster"
+                },
+                {
+                    "Key": "alpha.eksctl.io/cluster-oidc-enabled",
+                    "Value": "false"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "eksctl-wiz-eks-cluster/SubnetPublicUSEAST1D"
+                },
+                {
+                    "Key": "kubernetes.io/role/elb",
+                    "Value": "1"
+                },
+                {
+                    "Key": "aws:cloudformation:stack-id",
+                    "Value": "arn:aws:cloudformation:us-east-1:767828727505:stack/eksctl-wiz-eks-cluster/40ee9e30-32d8-11f0-a61e-0eb45e5c7d2d"
+                },
+                {
+                    "Key": "alpha.eksctl.io/cluster-name",
+                    "Value": "wiz-eks"
+                }
+            ],
+            "SubnetArn": "arn:aws:ec2:us-east-1:767828727505:subnet/subnet-021c5bb84406c3a27",
+            "EnableDns64": false,
+            "Ipv6Native": false,
+            "PrivateDnsNameOptionsOnLaunch": {
+                "HostnameType": "ip-name",
+                "EnableResourceNameDnsARecord": false,
+                "EnableResourceNameDnsAAAARecord": false
+            },
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "SubnetId": "subnet-021c5bb84406c3a27",
+            "State": "available",
+            "VpcId": "vpc-0af1f0286f7932385",
+            "CidrBlock": "192.168.32.0/19",
+            "AvailableIpAddressCount": 8174,
+            "AvailabilityZone": "us-east-1d",
+            "DefaultForAz": false,
+            "MapPublicIpOnLaunch": true
+        }
+    ]
+}
