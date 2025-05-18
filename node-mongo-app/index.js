@@ -13,18 +13,18 @@ const client = new MongoClient(uri);
 async function connectToMongo() {
     try {
       await client.connect();
-      console.log("✅ Successfully connected to Mongo");
+      console.log("Successfully connected to Mongo");
   
       const dbs = await client.db().admin().listDatabases();
-      console.log("📂 Databases:", dbs.databases.map(db => db.name));
+      console.log("Databases:", dbs.databases.map(db => db.name));
     } catch (err) {
-      console.error("❌ Failed to connect to Mongo:", err.message || err);
+      console.error("Failed to connect to Mongo:", err.message || err);
       // Add a short delay before exiting to let logs flush
       await new Promise((res) => setTimeout(res, 500));
       process.exit(1);
     } finally {
       await client.close();
-      console.log("🔌 Connection closed");
+      console.log("Connection closed");
     }
   }
   

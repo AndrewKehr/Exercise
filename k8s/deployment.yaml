@@ -13,16 +13,14 @@ spec:
         app: wiz-2048
     spec:
       containers:
-        - name: game-2048
-          image: 767828727505.dkr.ecr.us-east-1.amazonaws.com/2048-app:latest
-          ports:
-            - containerPort: 80
-          env:
-            - name: MONGO_URI
-              valueFrom:
-                configMapKeyRef:
-                  name: mongodb-connection
-                  key: MONGO_URI
+        - name: tasky
+      image: 767828727505.dkr.ecr.us-east-1.amazonaws.com/tasky:latest
+      ports:
+        - containerPort: 8080
+      env:
+        - name: MONGO_URI
+          value: "mongodb://admin:WizSecurePass123%21@192.168.6.81:27017/?authSource=admin"
+
 
 ---
 apiVersion: v1

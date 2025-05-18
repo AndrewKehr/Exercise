@@ -13,11 +13,25 @@ spec:
         app: mongo-connector
     spec:
       containers:
-      - name: mongo-connector
-        image: 767828727505.dkr.ecr.us-east-1.amazonaws.com/mongo-connector:latest
-        env:
-        - name: MONGO_URI
-          valueFrom:
-            secretKeyRef:
-              name: mongo-uri
-              key: MONGO_URI
+        - name: mongo-connector
+          image: 767828727505.dkr.ecr.us-east-1.amazonaws.com/mongo-connector:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-uri
+                  key: MONGO_URI
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-connector-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: mongo-connector
+  ports:
+    - port: 80
+      targetPort: 3000
