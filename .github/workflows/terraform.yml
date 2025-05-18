@@ -46,11 +46,13 @@ jobs:
 
       - name: Plan Terraform
         run: |
-          terraform plan \
-            -var "key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
+          echo "Using key pair: ${{ secrets.EC2_KEY_PAIR_NAME }}"
+          terraform plan -var="key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
+        continue-on-error: false
 
       - name: Apply Terraform
         if: github.ref == 'refs/heads/main'
         run: |
-          terraform apply -auto-approve \
-            -var "key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
+          echo "Applying with key pair: ${{ secrets.EC2_KEY_PAIR_NAME }}"
+          terraform apply -auto-approve -var="key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
+
