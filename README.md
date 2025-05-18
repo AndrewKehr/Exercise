@@ -4,8 +4,9 @@ This project demonstrates deploying a cloud infrastructure on AWS using Terrafor
 
 * An EC2 instance running MongoDB with secure access via AWS SSM
 * Automated MongoDB backups to an S3 bucket
-* A containerized Go web app (Tasky) connecting to MongoDB
-* Deployment of Tasky to an EKS cluster
+* A containerized Go web app (Tasky), connecting to MongoDB
+* Deployed Tasky application running on an EKS cluster
+
 
 ---
 
@@ -27,6 +28,9 @@ This project demonstrates deploying a cloud infrastructure on AWS using Terrafor
 * **MongoDB** installed and configured securely on Amazon Linux 2 EC2
 * **S3** bucket for storing database backups
 * **Kubernetes** cluster (EKS) for hosting containerized applications
+
+![Architecture Diagram](./assets/architecture.png)
+
 
 ---
 
@@ -68,6 +72,8 @@ aws ssm start-session --target <instance-id>
   * Username: `admin`
   * Password: `WizSecurePass123!`
 
+*Note: The credentials provided are for demonstration purposes only.*
+
 ### To connect:
 
 ```bash
@@ -100,7 +106,7 @@ Access this deployment of Tasky here: [http://af97934a7008a49f9b2397a6295e3855-6
 
 1. Build Docker image and push to ECR
 2. Apply Kubernetes manifests in `/tasky`
-3. Access via an exposed LoadBalancer
+3. Access via an exposed LoadBalancer endpoint
 
 ---
 
@@ -117,7 +123,7 @@ This project uses GitHub Actions to automate the following workflows:
 
 * The GitHub Actions workflows are defined in `.github/workflows/`
 * Secrets such as `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `ECR_REPOSITORY_URI` are securely stored in GitHub
-* Each push to the `main` branch triggers:
+* Automatic build and push of the Docker image to Amazon ECR
 
 ---
 
@@ -125,6 +131,9 @@ This project uses GitHub Actions to automate the following workflows:
 
 After `terraform apply`, you will get:
 
-* `ec2_public_ip`: Public IP of MongoDB EC2 (for initial setup only)
-* `s3_bucket_name`: Name of S3 bucket used for backups
-* `eks_cluster_name`: EKS cluster provisioned for app deployment
+| Output Name       | Description                             |
+|-------------------|-----------------------------------------|
+| ec2_public_ip     | Public IP of MongoDB EC2 instance       |
+| s3_bucket_name    | Name of the S3 bucket for backups       |
+| eks_cluster_name  | EKS cluster used for Tasky deployment   |
+
