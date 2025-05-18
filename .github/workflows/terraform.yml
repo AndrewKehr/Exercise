@@ -38,13 +38,17 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
+      - name: Debug Secret Value
+        run: echo "EC2 Key Pair is: ${{ secrets.EC2_KEY_PAIR_NAME }}"
+
       - name: Terraform Validate
         run: terraform validate
 
       - name: Terraform Plan
         run: |
-          echo "🔍 Checking plan with key_pair_name = ${{ secrets.EC2_KEY_PAIR_NAME }}"
+          echo "TF_VAR_key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
           terraform plan -var="key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
+
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
