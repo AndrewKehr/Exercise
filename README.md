@@ -57,7 +57,7 @@ This project demonstrates deploying a cloud infrastructure on AWS using Terrafor
 git clone <your-repo-url>
 cd Exercise/terraform
 terraform init
-terraform apply -var="key_pair_name=wiz-keypair"
+terraform apply
 ```
 
 ### 2. Connect to MongoDB EC2 via SSM
