@@ -15,6 +15,13 @@ jobs:
     name: Terraform Plan & Apply
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: Exercise/terraform
+
+    env:
+      AWS_REGION: us-east-1
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -33,17 +40,13 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: Exercise/terraform
 
       - name: Terraform Validate
         run: terraform validate
-        working-directory: Exercise/terraform
 
       - name: Terraform Plan
-        run: terraform plan -var="key_pair_name=wiz-keypair"
-        working-directory: Exercise/terraform
+        run: terraform plan
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
-        run: terraform apply -auto-approve -var="key_pair_name=wiz-keypair"
-        working-directory: Exercise/terraform
+        run: terraform apply -auto-approve
