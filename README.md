@@ -131,6 +131,9 @@ This project uses GitHub Actions to automate the following workflows:
 * Deploy the containerized apps to the EKS cluster using `kubectl`
 * Optionally validate infrastructure using Terraform plan/apply
 
+![CI](https://github.com/your-username/wiz-project/actions/workflows/deploy.yml/badge.svg)
+![CI](https://github.com/your-username/wiz-project/actions/workflowsterraform.yml/badge.svg)
+
 ### Workflow Highlights
 
 * The GitHub Actions workflows are defined in `.github/workflows/`

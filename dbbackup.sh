@@ -5,12 +5,12 @@ BACKUP_DIR="/tmp/mongo-backup-$TIMESTAMP"
 ARCHIVE_FILE="/tmp/mongo-backup-$TIMESTAMP.tar.gz"
 S3_BUCKET="wiz-public-backups-78d7cf71"
 
-# MongoDB credentials
+# MongoDB creds
 MONGO_USER="admin"
 MONGO_PASS="WizSecurePass123!"
 AUTH_DB="admin"
 
-# Dump the database with authentication
+# Dump the db
 mongodump \
   --username="$MONGO_USER" \
   --password="$MONGO_PASS" \

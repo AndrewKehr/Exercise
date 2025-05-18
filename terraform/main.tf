@@ -141,7 +141,7 @@ resource "aws_instance" "mongodb" {
               EOF
 
   tags = {
-    Name = "wiz-mongo-vm"
+    Name = "wiz-mongo"
   }
 }
 

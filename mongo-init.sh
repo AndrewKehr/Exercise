@@ -3,7 +3,7 @@
 set -euo pipefail
 
 INSTANCE_ID=$(aws ec2 describe-instances \
-  --filters "Name=tag:Name,Values=wiz-mongo-vm" \
+  --filters "Name=tag:Name,Values=wiz-mongo" \
   --query "Reservations[].Instances[].InstanceId" \
   --output text)
 
