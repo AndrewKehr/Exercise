@@ -108,13 +108,10 @@ Access this deployment of Tasky here: [http://af97934a7008a49f9b2397a6295e3855-6
 
 This project uses GitHub Actions to automate the following workflows:
 
-* Build Docker images for the Node.js app and Tasky
-* Push images to Amazon Elastic Container Registry (ECR)
-* Deploy the containerized apps to the EKS cluster using `kubectl`
-* Optionally validate infrastructure using Terraform plan/apply
+* Build Docker images for Tasky
+* Push images to ECR
 
 [![Build and Push to ECR](https://github.com/AndrewKehr/Exercise/actions/workflows/deploy.yml/badge.svg)](https://github.com/AndrewKehr/Exercise/actions/workflows/deploy.yml)
-[![Terraform CI](https://github.com/AndrewKehr/Exercise/actions/workflows/terraform.yml/badge.svg)](https://github.com/AndrewKehr/Exercise/actions/workflows/terraform.yml)
 
 ### Workflow Highlights
 
