@@ -3,7 +3,6 @@ terraform_accessKeys.csv
 *.zip
 terraform/.terraform/
 wiz/aws/
-tasky/
 aws/
 2048/
 .aws/
