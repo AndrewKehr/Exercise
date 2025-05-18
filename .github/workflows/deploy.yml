@@ -10,7 +10,7 @@ jobs:
 
     env:
       AWS_REGION: us-east-1
-      ECR_REPOSITORY: 767828727505.dkr.ecr.us-east-1.amazonaws.com/mongo-connector
+      ECR_REPOSITORY: 767828727505.dkr.ecr.us-east-1.amazonaws.com/tasky
       IMAGE_TAG: ${{ github.run_number }}
 
     steps:
@@ -32,7 +32,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Build and push Docker image
-        working-directory: node-mongo-app
+        working-directory: wiz/tasky
         run: |
           docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
           docker tag $ECR_REPOSITORY:$IMAGE_TAG $ECR_REPOSITORY:latest
