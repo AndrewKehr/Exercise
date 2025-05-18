@@ -45,6 +45,9 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
+      - name: Debug Secret Value
+        run: echo "Using key pair: $TF_VAR_key_pair_name"
+
       - name: Terraform Plan
         run: terraform plan
 
