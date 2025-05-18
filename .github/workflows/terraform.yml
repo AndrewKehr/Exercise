@@ -45,14 +45,13 @@ jobs:
         run: terraform validate
 
       - name: Plan Terraform
-        run: |
-          echo "Using key pair: ${{ secrets.EC2_KEY_PAIR_NAME }}"
-          terraform plan -var="key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
-        continue-on-error: false
+        env:
+          TF_VAR_key_pair_name: ${{ secrets.EC2_KEY_PAIR_NAME }}
+        run: terraform plan
+
 
       - name: Apply Terraform
         if: github.ref == 'refs/heads/main'
-        run: |
-          echo "Applying with key pair: ${{ secrets.EC2_KEY_PAIR_NAME }}"
-          terraform apply -auto-approve -var="key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
-
+        env:
+          TF_VAR_key_pair_name: ${{ secrets.EC2_KEY_PAIR_NAME }}
+        run: terraform apply -auto-approve
