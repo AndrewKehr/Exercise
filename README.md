@@ -5,7 +5,7 @@ This project demonstrates deploying a cloud infrastructure on AWS using Terrafor
 * An EC2 instance running MongoDB with secure access via AWS SSM
 * Automated MongoDB backups to an S3 bucket
 * A containerized Node.js app connecting to MongoDB
-* Deployment of the [2048 game](https://github.com/gabrielecirulli/2048) to an EKS cluster
+* Deployment of Tasky to an EKS cluster
 
 ---
 
@@ -110,9 +110,9 @@ docker run --rm -e MONGO_URI='mongodb://admin:WizSecurePass123!@<private-ip>:270
 
 ---
 
-## Containerized Web App (2048 Game)
+## Containerized Web App (Tasky)
 
-The [2048 game](https://github.com/gabrielecirulli/2048) is containerized and deployed to EKS.
+Tasky is containerized and deployed to EKS.
 
 ### Steps:
 
@@ -126,7 +126,7 @@ The [2048 game](https://github.com/gabrielecirulli/2048) is containerized and de
 
 This project uses GitHub Actions to automate the following workflows:
 
-* Build Docker images for the Node.js app and 2048 game
+* Build Docker images for the Node.js app and Tasky
 * Push images to Amazon Elastic Container Registry (ECR)
 * Deploy the containerized apps to the EKS cluster using `kubectl`
 * Optionally validate infrastructure using Terraform plan/apply

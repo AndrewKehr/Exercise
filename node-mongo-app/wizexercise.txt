@@ -1,1 +1,0 @@
-This file confirms completion of the Wiz Kubernetes exercise.
