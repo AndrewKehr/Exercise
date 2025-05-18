@@ -119,9 +119,6 @@ This project uses GitHub Actions to automate the following workflows:
 * Secrets such as `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `ECR_REPOSITORY_URI` are securely stored in GitHub
 * Each push to the `main` branch triggers:
 
-  * Docker build & push for updated services
-  * Kubernetes manifest deployment
-
 ---
 
 ## Outputs
