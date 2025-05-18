@@ -29,7 +29,7 @@ This project demonstrates deploying a cloud infrastructure on AWS using Terrafor
 * **S3** bucket for storing database backups
 * **Kubernetes** cluster (EKS) for hosting containerized applications
 
-![Architecture Diagram](./assets/architecture.png)
+![Architecture Diagram](./assets/Architecture.png)
 
 
 ---
