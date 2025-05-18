@@ -21,6 +21,7 @@ jobs:
 
     env:
       AWS_REGION: us-east-1
+      KEY_PAIR_NAME: ${{ secrets.EC2_KEY_PAIR_NAME }}
 
     steps:
       - name: Checkout repository
@@ -45,8 +46,8 @@ jobs:
         run: terraform validate
 
       - name: Plan Terraform
-        run: terraform plan -var="key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
+        run: terraform plan -var="key_pair_name=${KEY_PAIR_NAME}"
 
       - name: Apply Terraform
         if: github.ref == 'refs/heads/main'
-        run: terraform apply -auto-approve -var="key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
+        run: terraform apply -auto-approve -var="key_pair_name=${KEY_PAIR_NAME}"
