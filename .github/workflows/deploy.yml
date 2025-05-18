@@ -37,17 +37,3 @@ jobs:
           docker tag $ECR_REPOSITORY:$IMAGE_TAG $ECR_REPOSITORY:latest
           docker push $ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REPOSITORY:latest
-
-      - name: Set up kubectl
-        uses: azure/setup-kubectl@v3
-        with:
-          version: v1.29.0
-
-      - name: Update kubeconfig for EKS
-        run: |
-          aws eks update-kubeconfig --region $AWS_REGION --name wiz-eks
-
-      - name: Deploy to EKS
-        run: |
-          kubectl apply -f tasky/deployment.yaml
-          kubectl apply -f tasky/service.yaml
