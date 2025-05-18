@@ -87,7 +87,7 @@ Backups are automated using a cron job on the EC2 instance that runs the `dbback
 sudo bash /opt/scripts/dbbackup.sh
 ```
 
-Backups are uploaded to the provisioned S3 bucket. Filenames include timestamps for uniqueness.
+Backups are uploaded to the provisioned S3 bucket. Filenames include timestamps for uniqueness.  
 [https://wiz-public-backups-78d7cf71.s3.amazonaws.com/](https://wiz-public-backups-78d7cf71.s3.amazonaws.com/)
 
 ---
@@ -113,11 +113,12 @@ docker run --rm -e MONGO_URI='mongodb://admin:WizSecurePass123!@<private-ip>:270
 ## Containerized Web App (Tasky)
 
 Tasky is containerized and deployed to EKS.
+Access this deployment of Tasky here: http://af97934a7008a49f9b2397a6295e3855-672729978.us-east-1.elb.amazonaws.com/
 
 ### Steps:
 
 1. Build Docker image and push to ECR
-2. Apply Kubernetes manifests in `/k8s/deploy.yml`
+2. Apply Kubernetes manifests in `/tasky`
 3. Access via an exposed LoadBalancer
 
 ---
