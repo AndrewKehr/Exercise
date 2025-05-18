@@ -21,7 +21,6 @@ jobs:
 
     env:
       AWS_REGION: us-east-1
-      TF_VAR_key_pair_name: ${{ secrets.EC2_KEY_PAIR_NAME }}
 
     steps:
       - name: Checkout Code
@@ -39,18 +38,29 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      - name: Show environment
+        run: env | sort
+
+      - name: Debug Secret Value
+        run: echo "Using key pair: $TF_VAR_key_pair_name"
+        env:
+          TF_VAR_key_pair_name: ${{ secrets.EC2_KEY_PAIR_NAME }}
+
       - name: Terraform Init
         run: terraform init
 
       - name: Terraform Validate
         run: terraform validate
 
-      - name: Debug Secret Value
-        run: echo "Using key pair: $TF_VAR_key_pair_name"
-
       - name: Terraform Plan
-        run: terraform plan
+        run: |
+          echo "Using key pair: $TF_VAR_key_pair_name"
+          terraform plan
+        env:
+          TF_VAR_key_pair_name: ${{ secrets.EC2_KEY_PAIR_NAME }}
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve
+        env:
+          TF_VAR_key_pair_name: ${{ secrets.EC2_KEY_PAIR_NAME }}
