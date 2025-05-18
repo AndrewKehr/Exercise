@@ -53,14 +53,10 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        run: |
-          echo "Using key pair: $TF_VAR_key_pair_name"
-          terraform plan
-        env:
-          TF_VAR_key_pair_name: ${{ secrets.EC2_KEY_PAIR_NAME }}
+        run: terraform plan -var="key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
+
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
-        run: terraform apply -auto-approve
-        env:
-          TF_VAR_key_pair_name: ${{ secrets.EC2_KEY_PAIR_NAME }}
+        run: terraform apply -auto-approve -var="key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
+
