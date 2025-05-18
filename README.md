@@ -131,8 +131,8 @@ This project uses GitHub Actions to automate the following workflows:
 * Deploy the containerized apps to the EKS cluster using `kubectl`
 * Optionally validate infrastructure using Terraform plan/apply
 
-* [![Build and Push to ECR](https://github.com/AndrewKehr/Exercise/actions/workflows/deploy.yml/badge.svg)](https://github.com/AndrewKehr/Exercise/actions/workflows/deploy.yml)
-* [![Terraform CI](https://github.com/AndrewKehr/Exercise/actions/workflows/terraform.yml/badge.svg)](https://github.com/AndrewKehr/Exercise/actions/workflows/terraform.yml)
+[![Build and Push to ECR](https://github.com/AndrewKehr/Exercise/actions/workflows/deploy.yml/badge.svg)](https://github.com/AndrewKehr/Exercise/actions/workflows/deploy.yml)  
+[![Terraform CI](https://github.com/AndrewKehr/Exercise/actions/workflows/terraform.yml/badge.svg)](https://github.com/AndrewKehr/Exercise/actions/workflows/terraform.yml)
 
 
 ### Workflow Highlights
