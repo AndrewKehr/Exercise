@@ -3,12 +3,12 @@ name: Terraform CI
 on:
   push:
     paths:
-      - 'terraform/**'
+      - 'Exercise/terraform/**'
     branches:
       - main
   pull_request:
     paths:
-      - 'terraform/**'
+      - 'Exercise/terraform/**'
 
 jobs:
   terraform:
@@ -17,7 +17,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: terraform
+        working-directory: Exercise/terraform
 
     env:
       AWS_REGION: us-east-1
