@@ -12,12 +12,16 @@ on:
 
 jobs:
   terraform:
-    runs-on: ubuntu-latest
     name: Terraform Plan & Apply
+    runs-on: ubuntu-latest
 
     defaults:
       run:
         working-directory: Exercise/terraform
+
+    env:
+      AWS_REGION: us-east-1
+      TF_VAR_key_pair_name: ${{ secrets.EC2_KEY_PAIR_NAME }}
 
     steps:
       - name: Checkout Code
@@ -38,18 +42,12 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
-      - name: Debug Secret Value
-        run: echo "EC2 Key Pair is: ${{ secrets.EC2_KEY_PAIR_NAME }}"
-
       - name: Terraform Validate
         run: terraform validate
 
       - name: Terraform Plan
-        run: |
-          echo "TF_VAR_key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
-          terraform plan -var="key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
-
+        run: terraform plan
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
-        run: terraform apply -auto-approve -var="key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
+        run: terraform apply -auto-approve
