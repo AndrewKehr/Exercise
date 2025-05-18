@@ -19,9 +19,6 @@ jobs:
       run:
         working-directory: Exercise/terraform
 
-    env:
-      AWS_REGION: us-east-1
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -38,14 +35,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Show environment
-        run: env | sort
-
-      - name: Debug Secret Value
-        run: echo "Using key pair: $TF_VAR_key_pair_name"
-        env:
-          TF_VAR_key_pair_name: ${{ secrets.EC2_KEY_PAIR_NAME }}
-
       - name: Terraform Init
         run: terraform init
 
@@ -53,10 +42,8 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan -var="key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
-
+        run: terraform plan -var="key_pair_name=wiz-keypair"
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
-        run: terraform apply -auto-approve -var="key_pair_name=${{ secrets.EC2_KEY_PAIR_NAME }}"
-
+        run: terraform apply -auto-approve -var="key_pair_name=wiz-keypair"
