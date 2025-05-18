@@ -4,7 +4,7 @@ This project demonstrates deploying a cloud infrastructure on AWS using Terrafor
 
 * An EC2 instance running MongoDB with secure access via AWS SSM
 * Automated MongoDB backups to an S3 bucket
-* A containerized Node.js app connecting to MongoDB
+* A containerized Go web app (Tasky) connecting to MongoDB
 * Deployment of Tasky to an EKS cluster
 
 ---
@@ -16,8 +16,7 @@ This project demonstrates deploying a cloud infrastructure on AWS using Terrafor
 * [How to Deploy](#how-to-deploy)
 * [MongoDB on EC2](#mongodb-on-ec2)
 * [S3 Backups](#s3-backups)
-* [Node.js Mongo App](#nodejs-mongo-app)
-* [Containerized Web App](#containerized-web-app)
+* [Containerized Web App (Tasky)](#containerized-web-app-tasky)
 * [Outputs](#outputs)
 
 ---
@@ -87,33 +86,15 @@ Backups are automated using a cron job on the EC2 instance that runs the `dbback
 sudo bash /opt/scripts/dbbackup.sh
 ```
 
-Backups are uploaded to the provisioned S3 bucket. Filenames include timestamps for uniqueness.  
+Backups are uploaded to the provisioned S3 bucket. Filenames include timestamps for uniqueness.
 [https://wiz-public-backups-78d7cf71.s3.amazonaws.com/](https://wiz-public-backups-78d7cf71.s3.amazonaws.com/)
-
----
-
-## Node.js Mongo App
-
-A minimal Node.js app (`node-mongo-app`) was created to test the database connection.
-
-### Environment variables:
-
-* `MONGO_URI`: MongoDB connection string using admin credentials
-
-### To build and run locally:
-
-```bash
-cd Exercise/node-mongo-app
-docker build -t node-mongo-app .
-docker run --rm -e MONGO_URI='mongodb://admin:WizSecurePass123!@<private-ip>:27017/admin' node-mongo-app
-```
 
 ---
 
 ## Containerized Web App (Tasky)
 
 Tasky is containerized and deployed to EKS.
-Access this deployment of Tasky here: http://af97934a7008a49f9b2397a6295e3855-672729978.us-east-1.elb.amazonaws.com/
+Access this deployment of Tasky here: [http://af97934a7008a49f9b2397a6295e3855-672729978.us-east-1.elb.amazonaws.com/](http://af97934a7008a49f9b2397a6295e3855-672729978.us-east-1.elb.amazonaws.com/)
 
 ### Steps:
 
@@ -132,9 +113,8 @@ This project uses GitHub Actions to automate the following workflows:
 * Deploy the containerized apps to the EKS cluster using `kubectl`
 * Optionally validate infrastructure using Terraform plan/apply
 
-[![Build and Push to ECR](https://github.com/AndrewKehr/Exercise/actions/workflows/deploy.yml/badge.svg)](https://github.com/AndrewKehr/Exercise/actions/workflows/deploy.yml)  
+[![Build and Push to ECR](https://github.com/AndrewKehr/Exercise/actions/workflows/deploy.yml/badge.svg)](https://github.com/AndrewKehr/Exercise/actions/workflows/deploy.yml)
 [![Terraform CI](https://github.com/AndrewKehr/Exercise/actions/workflows/terraform.yml/badge.svg)](https://github.com/AndrewKehr/Exercise/actions/workflows/terraform.yml)
-
 
 ### Workflow Highlights
 
