@@ -38,13 +38,10 @@ jobs:
           docker push $ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REPOSITORY:latest
 
-      - name: Install kubectl
-        run: |
-          KUBECTL_VERSION="v1.29.0"
-          curl -LO "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl"
-          chmod +x kubectl
-          sudo mv kubectl /usr/local/bin/kubectl
-
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: v1.29.0
 
       - name: Update kubeconfig for EKS
         run: |
