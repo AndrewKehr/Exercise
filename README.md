@@ -13,12 +13,14 @@ This project demonstrates deploying a cloud infrastructure on AWS using Terrafor
 ## Contents
 
 * [Architecture Overview](#architecture-overview)
+* [Architecture Diagram](#architecture-diagram)
 * [Prerequisites](#prerequisites)
 * [How to Deploy](#how-to-deploy)
 * [MongoDB on EC2](#mongodb-on-ec2)
 * [S3 Backups](#s3-backups)
 * [Containerized Web App (Tasky)](#containerized-web-app-tasky)
 * [Outputs](#outputs)
+* [Teardown](#teardown)
 
 ---
 
@@ -28,6 +30,8 @@ This project demonstrates deploying a cloud infrastructure on AWS using Terrafor
 * **MongoDB** installed and configured securely on Amazon Linux 2 EC2
 * **S3** bucket for storing database backups
 * **Kubernetes** cluster (EKS) for hosting containerized applications
+
+## Architecture Diagram
 
 ![Architecture Diagram](./assets/Architecture.png)
 
@@ -137,3 +141,12 @@ After `terraform apply`, you will get:
 | s3_bucket_name    | Name of the S3 bucket for backups       |
 | eks_cluster_name  | EKS cluster used for Tasky deployment   |
 
+---
+
+## Teardown
+
+To clean up all provisioned resources when you're finished:
+
+```bash
+cd Exercise/terraform
+terraform destroy -var="key_pair_name=wiz-keypair"
