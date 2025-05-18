@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tasky
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tasky
+  template:
+    metadata:
+      labels:
+        app: tasky
+    spec:
+      containers:
+        - name: tasky
+          image: 767828727505.dkr.ecr.us-east-1.amazonaws.com/tasky:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-uri
+                  key: MONGO_URI
