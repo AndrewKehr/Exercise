@@ -103,13 +103,17 @@ Backups are uploaded to the provisioned S3 bucket. Filenames include timestamps 
 
 ## Containerized Web App (Tasky)
 
-Tasky is containerized and deployed to EKS.
+Tasky is containerized and deployed to EKS.  
+The Tasky app runs with cluster-admin privileges using a ClusterRoleBinding. This configuration is intentionally insecure and included for demonstration purposes only.  
 Access this deployment of Tasky here: [http://af97934a7008a49f9b2397a6295e3855-672729978.us-east-1.elb.amazonaws.com/](http://af97934a7008a49f9b2397a6295e3855-672729978.us-east-1.elb.amazonaws.com/)
 
 ### Steps:
 
 1. Build Docker image and push to ECR
-2. Apply Kubernetes manifests in `/tasky`
+2. Apply Kubernetes manifests in `/tasky`:
+   - [deployment.yaml](./tasky/deployment.yaml)
+   - [service.yaml](./tasky/service.yaml)
+   - [clusterrolebinding.yaml](./tasky/clusterrolebinding.yaml)
 3. Access via an exposed LoadBalancer endpoint
 
 ---
@@ -125,7 +129,7 @@ This project uses GitHub Actions to automate the following workflows:
 
 ### Workflow Highlights
 
-* The GitHub Actions workflows are defined in `.github/workflows/`
+* GitHub Actions workflows are defined in [.github/workflows/deploy.yml](./.github/workflows/deploy.yml)
 * Secrets such as `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `ECR_REPOSITORY_URI` are securely stored in GitHub
 * Automatic build and push of the Docker image to Amazon ECR
 
@@ -149,4 +153,5 @@ To clean up all provisioned resources when you're finished:
 
 ```bash
 cd Exercise/terraform
-terraform destroy -var="key_pair_name=wiz-keypair"
+terraform destroy
+```
