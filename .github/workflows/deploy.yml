@@ -1,4 +1,4 @@
-name: Build, Push, and Deploy Tasky
+name: Build and Push Tasky
 
 on:
   push:
