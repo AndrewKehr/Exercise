@@ -57,7 +57,7 @@ This project demonstrates deploying a cloud infrastructure on AWS using Terrafor
 git clone <your-repo-url>
 cd Exercise/terraform
 terraform init
-terraform plan  
+terraform plan
 terraform apply
 ```
 
