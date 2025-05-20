@@ -12,25 +12,6 @@ provider "aws" {
   region = var.region
 }
 
-variable "region" {
-  default = "us-east-1"
-}
-
-variable "key_pair_name" {
-  description = "EC2 key pair name for SSH access"
-  type        = string
-}
-
-variable "cluster_name" {
-  default = "wiz-eks"
-}
-
-variable "ami" {
-  description = "AMI ID for EC2 instance"
-  type        = string
-  default     = "ami-0c2b8ca1dad447f8a" # Amazon Linux 2 in us-east-1
-}
-
 # VPC Module
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
