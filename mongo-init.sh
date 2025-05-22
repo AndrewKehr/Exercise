@@ -7,7 +7,7 @@ INSTANCE_ID=$(aws ec2 describe-instances \
   --query "Reservations[].Instances[].InstanceId" \
   --output text)
 
-echo "Sending SSM command to configure MongoDB..."
+echo "Sending SSM command to configure MongoDB"
 
 aws ssm send-command \
   --instance-ids "$INSTANCE_ID" \
