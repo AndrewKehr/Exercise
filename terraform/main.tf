@@ -151,6 +151,7 @@ resource "aws_s3_bucket_public_access_block" "public" {
   restrict_public_buckets = false
 }
 
+#set S3 bucket policy
 resource "aws_s3_bucket_policy" "public_policy" {
   bucket = aws_s3_bucket.public_backups.id
 
@@ -169,6 +170,7 @@ resource "aws_s3_bucket_policy" "public_policy" {
   })
 }
 
+#Outputs to write down
 output "ec2_public_ip" {
   value = aws_instance.mongodb.public_ip
 }
