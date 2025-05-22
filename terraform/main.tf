@@ -1,3 +1,5 @@
+#Terraform setup block
+
 terraform {
   required_providers {
     aws = {
@@ -7,6 +9,8 @@ terraform {
   }
   required_version = ">= 1.3.0"
 }
+
+#Provider config
 
 provider "aws" {
   region = var.region

@@ -26,7 +26,7 @@ fi
 # Compress the backup
 tar -czf "$ARCHIVE_FILE" -C "$BACKUP_DIR" .
 
-# Upload to S3.  This bucket is hardcoded but this could be assigned dynamically with Github actions.
+# Upload to S3.  This bucket is hardcoded but this could be assigned dynamically with an env var, cli arg, or terraform metadata
 aws s3 cp "/tmp/mongo-backup-$TIMESTAMP.tar.gz" "s3://$S3_BUCKET/mongo-backup-$TIMESTAMP.tar.gz"
 
 # Clean up
